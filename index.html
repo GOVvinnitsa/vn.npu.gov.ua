@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="uk" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Головна | Головне управління Національної поліції у Вінницькій області</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --dark:#141821;
+  --ink:#1D1D1B;
+  --ink-2:#575D6B;
+  --blue:#0059B3;
+  --blue-dk:#00417F;
+  --blue-pale:#EAF2FB;
+  --yellow:#FFD500;
+  --paper:#FFFFFF;
+  --grey:#F3F5F8;
+  --line:#DCE0E7;
+  --ph1:#25304A;
+  --ph2:#3A4C72;
+}
+:root:not([data-theme="light"]){
+  @media (prefers-color-scheme: dark){
+    --dark:#05070C;--ink:#E8ECF4;--ink-2:#9AA5BA;--blue:#6FA6F5;--blue-dk:#548EE4;
+    --blue-pale:#111D33;--paper:#0B111C;--grey:#101826;--line:#1F2A3E;--ph1:#172136;--ph2:#233350;
+  }
+}
+:root[data-theme="dark"]{
+  --dark:#05070C;--ink:#E8ECF4;--ink-2:#9AA5BA;--blue:#6FA6F5;--blue-dk:#548EE4;
+  --blue-pale:#111D33;--paper:#0B111C;--grey:#101826;--line:#1F2A3E;--ph1:#172136;--ph2:#233350;
+}
+*{box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.25;letter-spacing:-.01em}
+a{color:inherit}
+ul{margin:0;padding:0;list-style:none}
+button{font:inherit;cursor:pointer}
+img,svg{max-width:100%}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.wrap{width:min(1264px,100% - 2.5rem);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--yellow);color:#000;padding:.6rem 1rem;z-index:200}
+.skip:focus{left:1rem;top:.5rem}
+
+/* ============ верхня смуга ============ */
+.topbar{background:var(--dark);color:#B9C1D1;font-size:.78rem}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;min-height:34px;padding-block:.25rem}
+.beta{display:inline-flex;align-items:center;gap:.5rem}
+.beta i{width:6px;height:6px;border-radius:50%;background:var(--yellow)}
+.govua{display:inline-flex;align-items:center;gap:.4rem;color:#fff;text-decoration:none;font-weight:600}
+.govua b{background:var(--yellow);color:#111;padding:.06rem .3rem;border-radius:2px;font-size:.76rem}
+.govua:hover{text-decoration:underline}
+
+/* ============ шапка ============ */
+.head{border-bottom:1px solid var(--line);background:var(--paper)}
+.head .wrap{display:flex;align-items:center;gap:1rem;padding:.95rem 0}
+.org{display:flex;align-items:center;gap:.95rem;text-decoration:none;max-width:660px}
+.org .em{flex:none;width:44px;height:52px}
+.org b{display:block;font-size:.98rem;font-weight:700;line-height:1.28}
+.org em{display:block;font-style:normal;font-size:.8rem;color:var(--ink-2);margin-top:.12rem}
+.htools{margin-left:auto;display:flex;align-items:center;gap:.4rem}
+.htool{border:1px solid var(--line);background:var(--paper);color:var(--ink-2);border-radius:5px;
+  height:36px;min-width:36px;padding:0 .55rem;display:inline-flex;align-items:center;justify-content:center;gap:.35rem;font-size:.85rem}
+.htool:hover{border-color:var(--blue);color:var(--blue)}
+.htool.old{font-size:.8rem}
+@media (max-width:900px){.htool.old{display:none}}
+
+/* ============ меню ============ */
+.nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:80}
+.nav > .wrap{display:flex;align-items:center;gap:.1rem}
+.mlist{display:flex;align-items:stretch;flex:1;min-width:0}
+.mi{position:static}
+.mi > a,.mi > button{display:inline-flex;align-items:center;gap:.35rem;height:50px;padding:0 .8rem;
+  background:none;border:0;color:var(--ink);text-decoration:none;font-size:.9rem;border-bottom:3px solid transparent;white-space:nowrap}
+.mi > a:hover,.mi > button:hover{color:var(--blue-dk);border-bottom-color:var(--blue)}
+.mi.open > button{color:var(--blue-dk);border-bottom-color:var(--blue)}
+.mi.open > button .ar{transform:rotate(180deg)}
+.ar{transition:transform .15s}
+.mega{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 18px 34px rgba(12,20,36,.12);z-index:90}
+.mi.open .mega{display:block}
+.mega .wrap{padding:1.5rem 0 1.8rem}
+.mega h4{font-size:1.05rem;margin-bottom:1rem}
+.mega ul{columns:3;column-gap:2.2rem}
+.mega li{break-inside:avoid;margin-bottom:.6rem}
+.mega a{font-size:.88rem;color:var(--ink-2);text-decoration:none;line-height:1.45}
+.mega a:hover{color:var(--blue-dk);text-decoration:underline}
+.call{margin-left:auto;display:inline-flex;align-items:center;gap:.4rem;background:#C11A28;color:#fff;
+  border-radius:5px;padding:.5rem .9rem;font-weight:600;font-size:.88rem;text-decoration:none}
+.call:hover{background:#9f141f}
+.burger{display:none;align-items:center;gap:.5rem;height:50px;background:none;border:0;color:var(--ink);font-weight:600}
+
+/* ============ пошук ============ */
+.search{background:var(--grey);border-bottom:1px solid var(--line);display:none}
+.search.open{display:block}
+.search .wrap{padding:1.6rem 0 1.9rem}
+.search h3{font-size:1.15rem;margin-bottom:1rem}
+.srow{display:flex;gap:.6rem;margin-bottom:1.2rem}
+.srow input{flex:1;height:48px;border:1px solid var(--line);border-radius:6px;padding:0 .9rem;background:var(--paper);color:var(--ink);font:inherit}
+.srow button{height:48px;padding:0 1.6rem;border:0;border-radius:6px;background:var(--blue);color:#fff;font-weight:600}
+.sfilters{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem}
+.sfilters label{display:block;font-size:.78rem;color:var(--ink-2);margin-bottom:.3rem}
+.sfilters select,.sfilters input{width:100%;height:42px;border:1px solid var(--line);border-radius:6px;padding:0 .7rem;background:var(--paper);color:var(--ink);font:inherit;font-size:.88rem}
+.stog{margin-top:1rem;background:none;border:0;color:var(--blue-dk);font-size:.88rem;padding:0;text-decoration:underline}
+
+/* ============ секції ============ */
+section{padding:2.8rem 0}
+.stitle{font-size:clamp(1.4rem,3vw,1.9rem);margin-bottom:1.5rem}
+
+.ph{position:relative;border-radius:8px;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(140deg,var(--ph1),var(--ph2));color:rgba(255,255,255,.38)}
+.ph::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 12px,transparent 12px 24px)}
+.ph svg{width:20%;max-width:80px;position:relative}
+/* Фото: якщо картинка завантажилась — вона перекриває заглушку й декоративний візерунок */
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.ph img[src=""]{display:none}
+.dt{display:block;font-size:.8rem;color:var(--ink-2);margin:.85rem 0 .35rem}
+
+/* головні повідомлення */
+.main-news{display:grid;grid-template-columns:1.55fr 1fr;gap:2.2rem}
+.mn-lead{text-decoration:none;display:block}
+.mn-lead .ph{aspect-ratio:16/9}
+.mn-lead h3{font-size:1.38rem;margin-top:.1rem}
+.mn-lead:hover h3{color:var(--blue-dk);text-decoration:underline}
+.mn-side li{padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.mn-side li:first-child{padding-top:0}
+.mn-side a{text-decoration:none;font-weight:600;font-size:1rem;display:block}
+.mn-side a:hover{color:var(--blue-dk);text-decoration:underline}
+.mn-side .dt{margin:.45rem 0 0}
+
+/* новини */
+.newsband{background:var(--grey)}
+.tabline{display:flex;gap:1.4rem;border-bottom:1px solid var(--line);margin-bottom:1.2rem;flex-wrap:wrap}
+.tabline button{background:none;border:0;padding:.7rem 0;color:var(--ink-2);border-bottom:3px solid transparent;font-size:.95rem}
+.tabline button[aria-selected="true"]{color:var(--ink);font-weight:600;border-bottom-color:var(--blue)}
+.chips{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1.7rem}
+.chip{border:1px solid var(--line);background:var(--paper);color:var(--ink-2);border-radius:99px;padding:.4rem .9rem;font-size:.84rem}
+.chip[aria-pressed="true"]{background:var(--dark);border-color:var(--dark);color:#fff}
+.chip:hover{color:var(--ink)}
+.ngrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.7rem 1.5rem}
+.nitem{text-decoration:none;display:block}
+.nitem .ph{aspect-ratio:3/2}
+.nitem h3{font-size:1rem;font-weight:600}
+.nitem:hover h3{color:var(--blue-dk);text-decoration:underline}
+.loadwrap{text-align:center;margin-top:2.2rem}
+.loadbtn{border:1px solid var(--blue);color:var(--blue-dk);background:var(--paper);border-radius:6px;padding:.7rem 1.7rem;font-weight:600}
+.loadbtn:hover{background:var(--blue);color:#fff}
+.hint{display:block;font-size:.8rem;color:var(--ink-2);margin-top:.8rem}
+
+/* громадянам */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.q{display:flex;gap:.85rem;padding:1.15rem;border:1px solid var(--line);border-radius:8px;text-decoration:none;background:var(--paper)}
+.q:hover{border-color:var(--blue);background:var(--blue-pale)}
+.q .ic{flex:none;width:38px;height:38px;border-radius:7px;background:var(--blue-pale);color:var(--blue-dk);display:grid;place-items:center}
+.q:hover .ic{background:var(--paper)}
+.q b{display:block;font-size:.95rem;margin-bottom:.12rem}
+.q span{font-size:.83rem;color:var(--ink-2);line-height:1.42}
+
+/* мапа порталу */
+.sitemap{background:var(--grey);border-top:1px solid var(--line)}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.mgrid h3{font-size:1rem;margin-bottom:.75rem}
+.mgrid h3 a{text-decoration:none}
+.mgrid h3 a:hover{color:var(--blue-dk);text-decoration:underline}
+.mgrid li{margin-bottom:.48rem}
+.mgrid li a{font-size:.87rem;color:var(--ink-2);text-decoration:none}
+.mgrid li a:hover{color:var(--blue-dk);text-decoration:underline}
+.mgrid li ul{margin-top:.45rem;padding-left:.9rem;border-left:2px solid var(--line)}
+
+/* підвал */
+footer.site{background:var(--paper);border-top:1px solid var(--line);padding:2.5rem 0 2rem;font-size:.89rem}
+.ftop{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:2.4rem;padding-bottom:1.9rem;border-bottom:1px solid var(--line)}
+.forg{display:flex;gap:1rem}
+.forg b{display:block;margin-bottom:.5rem;max-width:36ch}
+.forg p{margin:.15rem 0;color:var(--ink-2)}
+.forg a{color:var(--blue-dk);text-decoration:none}
+.forg a:hover{text-decoration:underline}
+.ftop h4{font-size:.93rem;margin-bottom:.7rem}
+.ftop li{margin-bottom:.45rem}
+.ftop li a{color:var(--ink-2);text-decoration:none}
+.ftop li a:hover{color:var(--blue-dk);text-decoration:underline}
+.social{display:flex;gap:.45rem;margin-top:.9rem}
+.social a{width:34px;height:34px;border:1px solid var(--line);border-radius:6px;display:grid;place-items:center;color:var(--ink-2)}
+.social a:hover{border-color:var(--blue);color:var(--blue-dk)}
+.govlinks{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;padding:1.3rem 0;border-bottom:1px solid var(--line);font-size:.84rem}
+.govlinks a{color:var(--ink-2);text-decoration:none}
+.govlinks a:hover{color:var(--blue-dk);text-decoration:underline}
+.flegal{padding-top:1.3rem;color:var(--ink-2);font-size:.82rem;display:grid;gap:.35rem}
+.flegal a{color:var(--blue-dk)}
+
+@media (max-width:1050px){
+  .main-news{grid-template-columns:1fr}
+  .ngrid{grid-template-columns:repeat(2,1fr)}
+  .quick,.mgrid{grid-template-columns:repeat(2,1fr)}
+  .ftop{grid-template-columns:1fr 1fr}
+  .sfilters{grid-template-columns:1fr 1fr}
+  .mega ul{columns:2}
+}
+@media (max-width:800px){
+  .nav > .wrap{flex-wrap:wrap}
+  .burger{display:inline-flex}
+  .mlist{display:none;flex-direction:column;width:100%;flex-basis:100%;padding-bottom:.6rem}
+  .mlist.open{display:flex}
+  .mi > a,.mi > button{height:44px;width:100%;justify-content:space-between;padding:0;border-bottom:1px solid var(--line)}
+  .mega{position:static;box-shadow:none;border:0}
+  .mega .wrap{width:100%;padding:.6rem 0 .9rem .9rem;border-left:2px solid var(--line)}
+  .mega h4{display:none}
+  .mega ul{columns:1}
+  .ngrid,.quick,.mgrid,.ftop,.sfilters{grid-template-columns:1fr}
+  .org em{display:none}
+  section{padding:2rem 0}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#content">Перейти до основного вмісту</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="beta"><i></i></span>
+    <a class="govua" href="https://www.kmu.gov.ua/catalog/" target="_blank" rel="noopener"><b>gov.ua</b> Державні сайти України</a>
+  </div>
+</div>
+
+<div class="head">
+  <div class="wrap">
+    <a class="org" href="#top">
+      <!-- ЛОГОТИП: вставте посилання в src, щоб замінити намальовану емблему -->
+      <img class="em" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRChK1WQbAoWpI0rbKFwLMvYSfiv8Snwi5yn9oTc1y6Bw&s=10" alt="Емблема" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      <span>
+        <b>Головне управління Національної поліції у Вінницькій області</b>
+        <em>Офіційний вебпортал</em>
+      </span>
+    </a>
+    <div class="htools">
+      <button class="htool old" id="oldver">Стара версія</button>
+      <button class="htool" id="fdown" aria-label="Зменшити розмір тексту">A−</button>
+      <button class="htool" id="fup" aria-label="Збільшити розмір тексту">A+</button>
+      <button class="htool" id="sbtn" aria-expanded="false" aria-controls="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        Пошук
+      </button>
+    </div>
+  </div>
+</div>
+
+<nav class="nav" aria-label="Головне меню">
+  <div class="wrap">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mlist">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg> Меню
+    </button>
+
+    <ul class="mlist" id="mlist">
+      <li class="mi">
+        <button aria-expanded="false">Про поліцію <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Про поліцію</h4>
+          <ul>
+            <li><a href="#">Структура</a></li>
+            <li><a href="#">Структура апарату Головного управління</a></li>
+            <li><a href="#">Територіальні підрозділи</a></li>
+            <li><a href="#">Окремі підрозділи Головного управління</a></li>
+            <li><a href="#">Керівництво</a></li>
+            <li><a href="#">Символіка</a></li>
+            <li><a href="#">Штатна чисельність</a></li>
+            <li><a href="#">Перелік посад поліцейських</a></li>
+            <li><a href="#">Запобігання і протидія корупції</a></li>
+          </ul>
+        </div></div>
+      </li>
+      <li class="mi">
+        <button aria-expanded="false">Діяльність <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Діяльність</h4>
+          <ul>
+            <li><a href="#">ООС</a></li>
+            <li><a href="#">Звітність</a></li>
+            <li><a href="#">План основних заходів</a></li>
+            <li><a href="#">Консультації з громадськістю</a></li>
+            <li><a href="#">Реформа поліції</a></li>
+            <li><a href="#">Державні закупівлі</a></li>
+            <li><a href="#">Енергоефективність</a></li>
+            <li><a href="#">Дотримання прав людини</a></li>
+            <li><a href="#">Відкриті дані</a></li>
+            <li><a href="#">Поліцейська комісія</a></li>
+            <li><a href="#">Міжнародна технічна допомога</a></li>
+          </ul>
+        </div></div>
+      </li>
+      <li class="mi">
+        <button aria-expanded="false">Громадянам <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Громадянам</h4>
+          <ul>
+            <li><a href="#">Розшук осіб, зниклих безвісти за особливих обставин</a></li>
+            <li><a href="#">Контактна інформація спеціалізованих центрів ГУНП з розшуку зниклих безвісти</a></li>
+            <li><a href="#">Звернення</a></li>
+            <li><a href="#">Подати звернення</a></li>
+            <li><a href="#">Повідомити про корупцію в поліції</a></li>
+            <li><a href="#">Графік особистого прийому громадян керівництвом</a></li>
+            <li><a href="#">Бази Нацполіції</a></li>
+            <li><a href="#">Автоматична система фото- та відеофіксації порушень ПДР</a></li>
+            <li><a href="#">Послуги поліції охорони</a></li>
+            <li><a href="#">Часті запити</a></li>
+            <li><a href="#">Створення безбар’єрного простору</a></li>
+            <li><a href="#">Застосунок «112»</a></li>
+          </ul>
+        </div></div>
+      </li>
+      <li class="mi">
+        <button aria-expanded="false">Документи <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Документи</h4>
+          <ul>
+            <li><a href="#">Нормативно-правові акти</a></li>
+            <li><a href="#">Накази управління</a></li>
+            <li><a href="#">Оприлюднення публічної інформації</a></li>
+            <li><a href="#">Як подати запит на публічну інформацію</a></li>
+          </ul>
+        </div></div>
+      </li>
+      <li class="mi">
+        <button aria-expanded="false">Вакансії <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Вакансії</h4>
+          <ul>
+            <li><a href="#">Вакансії в центральному органі управління</a></li>
+            <li><a href="#">Вакансії у відділах поліції та міжрегіональних територіальних підрозділах</a></li>
+            <li><a href="#">Набір на навчання до вишів</a></li>
+          </ul>
+        </div></div>
+      </li>
+      <li class="mi"><a href="#kontakty">Контакти</a></li>
+      <li class="mi">
+        <button aria-expanded="false">Назавжди в строю <svg class="ar" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></button>
+        <div class="mega"><div class="wrap">
+          <h4>Назавжди в строю</h4>
+          <ul>
+            <li><a href="#">Віртуальна книга пам’яті</a></li>
+            <li><a href="#">Працівники поліції, які загинули під час збройної агресії рф</a></li>
+          </ul>
+        </div></div>
+      </li>
+    </ul>
+
+    <a class="call" href="tel:102">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg> 102
+    </a>
+  </div>
+</nav>
+
+<div class="search" id="search">
+  <div class="wrap">
+    <h3>Пошук</h3>
+    <div class="srow">
+      <label class="sr" for="q">Шукати на порталі</label>
+      <input id="q" type="search" placeholder="Шукати на порталі або серед актів">
+      <button type="button">Знайти</button>
+    </div>
+    <div class="sfilters" id="sfilters" hidden>
+      <div>
+        <label for="dtype">Тип документа</label>
+        <select id="dtype"><option>Тип документа не обрано</option><option>Наказ</option><option>Розпорядження</option><option>Звіт</option></select>
+      </div>
+      <div>
+        <label for="dtheme">Тема</label>
+        <select id="dtheme"><option>Тему документа не обрано</option><option>Кадрові питання</option><option>Запобігання корупції</option><option>Закупівлі</option></select>
+      </div>
+      <div><label for="d1">Дата прийняття з</label><input id="d1" type="date"></div>
+      <div><label for="d2">Дата прийняття по</label><input id="d2" type="date"></div>
+    </div>
+    <button class="stog" id="stog" aria-expanded="false" aria-controls="sfilters">або шукати серед актів</button>
+  </div>
+</div>
+
+<main id="content">
+<div id="top"></div>
+
+<section>
+  <div class="wrap">
+    <h2 class="stitle">Головні повідомлення</h2>
+    <div class="main-news">
+      <a class="mn-lead" href="#">
+        <span class="ph">
+          <!-- ФОТО 1: вставте посилання в src -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/800_600_0_0_auto/img_0827f36cf7607117c0965e84e255cc95.JPG" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="19" height="14" rx="2"/><path d="M8 6 9.5 3.5h5L16 6"/><circle cx="12" cy="13" r="3.6"/></svg>
+        </span>
+        <span class="dt">06 вересня 2026, 13:01</span>
+        <h3>Поліцейські долучилися до благодійного забігу VINNYTSIA RUN 2026</h3>
+      </a>
+      <ul class="mn-side">
+        <li><a href="#">З нагоди річниці Незалежності України правоохоронців Вінниччини відзначили державними та відомчими нагородами</a><span class="dt">24 серпня 2026, 15:04</span></li>
+        <li><a href="#">Керівництво МВС представило особовому складу нового міністра внутрішніх справ</a><span class="dt">20 липня 2026, 19:47</span></li>
+        <li><a href="#">Управління прозвітувало перед громадою про результати роботи за перше півріччя</a><span class="dt">12 липня 2026, 11:20</span></li>
+        <li><a href="#">Триває набір на службу в поліції: документи приймають до кінця вересня</a><span class="dt">04 липня 2026, 09:50</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="newsband">
+  <div class="wrap">
+    <h2 class="stitle">Новини, анонси та медіагалереї</h2>
+    <div class="tabline" role="tablist">
+      <button role="tab" aria-selected="true" data-t="news">Новини</button>
+      <button role="tab" aria-selected="false" data-t="anons">Анонси</button>
+      <button role="tab" aria-selected="false" data-t="media">Медіагалереї</button>
+    </div>
+    <div class="chips">
+      <button class="chip" aria-pressed="true" data-f="all">Усі теми</button>
+      <button class="chip" aria-pressed="false" data-f="dtp">Безпека дорожнього руху</button>
+      <button class="chip" aria-pressed="false" data-f="krym">Протидія злочинності</button>
+      <button class="chip" aria-pressed="false" data-f="rozshuk">Розшук</button>
+      <button class="chip" aria-pressed="false" data-f="gromada">Взаємодія з громадою</button>
+      <button class="chip" aria-pressed="false" data-f="all">Іще теми</button>
+    </div>
+
+    <div class="ngrid" id="ngrid">
+      <a class="nitem" href="#" data-f="gromada">
+        <span class="ph">
+          <!-- ФОТО 2 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/800_600_0_0_auto/img_b8445d9da031421b0b0152eeda2ba9c3.jpeg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 12h8M8 16h5M8 8h8"/></svg>
+        </span>
+        <span class="dt">16 вересня 2026, 14:39</span>
+        <h3>Поліція Вінниччини відкрила двадцяту «зелену кімнату» для опитування дітей</h3>
+      </a>
+      <a class="nitem" href="#" data-f="dtp">
+        <span class="ph">
+          <!-- ФОТО 3 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/800_600_0_0_auto/img_9ddc55c2d65120bc6fad5f1dba0da26b.jpeg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h18l-2-6H5l-2 6Zm0 0v5h3m15-5v5h-3"/><circle cx="7.5" cy="18" r="1.6"/><circle cx="16.5" cy="18" r="1.6"/></svg>
+        </span>
+        <span class="dt">16 вересня 2026, 14:20</span>
+        <h3>Поліція працює на місці дорожньо-транспортної пригоди у Вінниці</h3>
+      </a>
+      <a class="nitem" href="#" data-f="krym">
+        <span class="ph">
+          <!-- ФОТО 4 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/800_600_0_0_auto/img_bc47459685692bbc354585571d145873.jpeg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+        </span>
+        <span class="dt">16 вересня 2026, 12:00</span>
+        <h3>Обіцяли перевести сина до тилової частини: у Вінниці затримали двох зловмисників</h3>
+      </a>
+      <a class="nitem" href="#" data-f="dtp">
+        <span class="ph">
+          <!-- ФОТО 5 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/800_600_0_0_auto/img_47c7f8ae7eb8bf7a1faaa807fc17e94e.jpg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.1 1.9 17a2 2 0 0 0 1.7 3h16.8a2 2 0 0 0 1.7-3L13.7 3.1a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg>
+        </span>
+        <span class="dt">16 вересня 2026, 11:29</span>
+        <h3>Слідчі розслідують обставини двох ДТП, у яких травмувалися двоє людей</h3>
+      </a>
+      <a class="nitem" href="#" data-f="krym">
+        <span class="ph">
+          <!-- ФОТО 6 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/600_0_0_0_auto/img_b36b278ea41e3a7746d6713c62bd13d7.jpg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M6 9h6M6 13h9"/></svg>
+        </span>
+        <span class="dt">16 вересня 2026, 10:31</span>
+        <h3>Фейкові банки та сайти знайомств: припинено роботу двох шахрайських кол-центрів</h3>
+      </a>
+      <a class="nitem" href="#" data-f="krym">
+        <span class="ph">
+          <!-- ФОТО 7 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/600_0_0_0_auto/img_87ad583463e05a8f6a2e8db80da58680.jpeg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V6l-8-3Z"/><path d="M12 8v5M12 16h.01"/></svg>
+        </span>
+        <span class="dt">15 вересня 2026, 14:43</span>
+        <h3>Розпочато досудове розслідування за фактом загибелі людини</h3>
+      </a>
+      <a class="nitem" href="#" data-f="rozshuk">
+        <span class="ph">
+          <!-- ФОТО 8 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/600_0_0_0_auto/img_0727cd2bd8deeb6522fb8a5bc4d85e0d.jpg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+        </span>
+        <span class="dt">15 вересня 2026, 09:12</span>
+        <h3>Оголошено розшук безвісти зниклого мешканця Вінниці: прикмети та контакти слідчого</h3>
+      </a>
+      <a class="nitem" href="#" data-f="gromada">
+        <span class="ph">
+          <!-- ФОТО 9 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/600_0_0_0_auto/img_b46eb4402fdc4bb1d07e0a39b6e42945.jpg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+        </span>
+        <span class="dt">14 вересня 2026, 16:05</span>
+        <h3>Поліцейські офіцери громад прозвітували перед мешканцями трьох територіальних громад</h3>
+      </a>
+      <a class="nitem" href="#" data-f="gromada">
+        <span class="ph">
+          <!-- ФОТО 10 -->
+          <img src="https://npu.gov.ua/static-objects/npu/resources/resize/600_0_0_0_auto/img_fbcb780858d194f1ca3456fa6a603a65.jpg" alt="">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="14" rx="2"/><path d="M8 6 9.5 3.5h5L16 6"/><circle cx="12" cy="13" r="3.6"/></svg>
+        </span>
+        <span class="dt">14 вересня 2026, 10:44</span>
+        <h3>Фоторепортаж: день відкритих дверей у навчальному центрі поліції</h3>
+      </a>
+    </div>
+
+    <div class="loadwrap">
+      <button class="loadbtn" id="loadmore">Завантажити ще</button>
+      <span class="hint" id="loadhint">Прокрутіть, щоб завантажити ще</span>
+      <div style="margin-top:1.2rem"><a class="loadbtn" href="#" style="display:inline-block;text-decoration:none">Усі новини</a></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="stitle">Громадянам</h2>
+    <div class="quick">
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M9 15h6M9 11h3"/></svg></span><span><b>Подати звернення</b><span>Електронна форма, пошта та особистий прийом</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg></span><span><b>Розшук зниклих безвісти</b><span>Алгоритм дій та контакти спеціалізованого центру</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V6l-8-3Z"/><path d="M12 8v5M12 16h.01"/></svg></span><span><b>Повідомити про корупцію</b><span>Гаряча лінія та захист прав викривачів</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18M8 15h4"/></svg></span><span><b>Прийом громадян</b><span>Графік особистого прийому керівництвом</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H5.5L4 18Z"/><path d="M8 9h8M8 12.5h5"/></svg></span><span><b>Запит на публічну інформацію</b><span>Порядок подання та строки розгляду</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span><span><b>Послуги поліції охорони</b><span>Сигналізація, пультова охорона, супровід</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><span><b>Відкриті дані</b><span>Набори даних у машинозчитуваних форматах</span></span></a>
+      <a class="q" href="#"><span class="ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span><span><b>Набір на службу в поліції</b><span>Вимоги, етапи відбору, подання документів</span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sitemap">
+  <div class="wrap">
+    <h2 class="stitle">Мапа порталу</h2>
+    <div class="mgrid">
+      <div>
+        <h3><a href="#">Про поліцію</a></h3>
+        <ul>
+          <li><a href="#">Структура апарату Головного управління</a></li>
+          <li><a href="#">Територіальні підрозділи</a></li>
+          <li><a href="#">Окремі підрозділи управління</a></li>
+          <li><a href="#">Керівництво</a></li>
+          <li><a href="#">План основних заходів</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><a href="#">Запобігання і протидія корупції</a></h3>
+        <ul>
+          <li><a href="#">Викривачам</a></li>
+          <li><a href="#">Законодавство у сфері запобігання корупції</a></li>
+          <li><a href="#">Відповідальність за корупційні правопорушення</a></li>
+          <li><a href="#">Правила етичної поведінки</a></li>
+          <li><a href="#">Обмеження щодо одержання подарунків</a></li>
+          <li><a href="#">Сектор запобігання корупції інформує</a>
+            <ul>
+              <li><a href="#">Особливості декларування в умовах воєнного стану</a></li>
+              <li><a href="#">Єдиний портал повідомлень викривачів</a></li>
+              <li><a href="#">Тиждень доброчесності</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h3><a href="#">Діяльність</a></h3>
+        <ul>
+          <li><a href="#">Державні закупівлі</a>
+            <ul>
+              <li><a href="#">Поточні закупівлі</a></li>
+              <li><a href="#">Результати проведення закупівель</a></li>
+              <li><a href="#">Учасники, що порушили умови договору</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Звітність</a></li>
+          <li><a href="#">Поліцейська комісія</a></li>
+          <li><a href="#">Відкриті дані</a></li>
+          <li><a href="#">Дотримання прав людини та ґендерної політики</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3><a href="#kontakty">Контакти</a></h3>
+        <ul>
+          <li><a href="#">Головне управління Національної поліції у Вінницькій області</a></li>
+          <li><a href="#">Апарат Головного управління</a></li>
+          <li><a href="#">Територіальні органи НПУ (дислокація м. Вінниця)</a></li>
+          <li><a href="#">Підпорядковані підрозділи</a></li>
+          <li><a href="#">Поліцейські станції</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site" id="kontakty">
+  <div class="wrap">
+    <div class="ftop">
+      <div class="forg">
+        <svg width="42" height="50" viewBox="0 0 44 52" fill="none" aria-hidden="true">
+          <path d="M22 2 41 8.6v18.2c0 12-8 20.8-19 24.4C11 47.6 3 38.8 3 26.8V8.6L22 2Z" fill="#0059B3" stroke="#FFD500" stroke-width="2"/>
+          <path d="M22 13.8 25.3 21h7.3l-5.8 4.8 2.2 7.5L22 28.7l-7 4.6 2.2-7.5L11.4 21h7.3l3.3-7.2Z" fill="#fff"/>
+        </svg>
+        <div>
+          <b>Головне управління Національної поліції у Вінницькій області</b>
+          <p>21050, м. Вінниця, вул. Театральна, 10</p>
+          <p>Телефон: <a href="tel:+380432594122">+380 (432) 59-41-22</a></p>
+          <p>Чергова частина: <a href="tel:102">102</a></p>
+          <div class="social">
+            <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.25-1.5 1.55-1.5h1.65V4.63A22 22 0 0 0 14.3 4.5c-2.4 0-4 1.45-4 4.12v2.28H7.6V14h2.7v8h3.2Z"/></svg></a>
+            <a href="#" aria-label="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.5 5.6L17.5 3Zm-1.1 16h1.8L7.7 4.8H5.8L16.4 19Z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Розділи</h4>
+        <ul>
+          <li><a href="#">Про поліцію</a></li>
+          <li><a href="#">Діяльність</a></li>
+          <li><a href="#">Громадянам</a></li>
+          <li><a href="#">Документи</a></li>
+          <li><a href="#">Вакансії</a></li>
+          <li><a href="#">Назавжди в строю</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Екстрені номери</h4>
+        <ul>
+          <li><a href="tel:102">102 — поліція</a></li>
+          <li><a href="tel:101">101 — рятувальники</a></li>
+          <li><a href="tel:103">103 — швидка допомога</a></li>
+          <li><a href="tel:112">112 — єдиний номер</a></li>
+          <li><a href="tel:0800501202">0 800 50 12 02 — лінія довіри</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="govlinks">
+      <a href="http://www.president.gov.ua/" target="_blank" rel="noopener">Президент України</a>
+      <a href="http://rada.gov.ua/" target="_blank" rel="noopener">Верховна Рада України</a>
+      <a href="http://www.ccu.gov.ua/" target="_blank" rel="noopener">Конституційний Суд України</a>
+      <a href="http://www.rnbo.gov.ua/" target="_blank" rel="noopener">Рада національної безпеки і оборони України</a>
+      <a href="https://www.kmu.gov.ua/catalog/" target="_blank" rel="noopener">Інші органи виконавчої влади</a>
+    </div>
+
+    <div class="flegal">
+      <span>Портал працює в тестовому режимі.</span>
+      <span>Демонстраційний макет верстки. Сторінка не пов’язана з Національною поліцією України, контент умовний. Офіційний портал — <a href="https://vn.npu.gov.ua/" target="_blank" rel="noopener">vn.npu.gov.ua</a>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var items = Array.prototype.slice.call(document.querySelectorAll('.mi'));
+  function closeAll(){
+    items.forEach(function(x){
+      x.classList.remove('open');
+      var b = x.querySelector('button');
+      if(b) b.setAttribute('aria-expanded','false');
+    });
+  }
+  items.forEach(function(mi){
+    var btn = mi.querySelector('button');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var was = mi.classList.contains('open');
+      closeAll();
+      if(!was){ mi.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+
+  var burger = document.getElementById('burger'), mlist = document.getElementById('mlist');
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var o = mlist.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o ? 'true':'false');
+  });
+  mlist.addEventListener('click', function(e){ e.stopPropagation(); });
+
+  var sb = document.getElementById('search'), sbtn = document.getElementById('sbtn');
+  sbtn.addEventListener('click', function(){
+    var o = sb.classList.toggle('open');
+    sbtn.setAttribute('aria-expanded', o ? 'true':'false');
+    if(o) document.getElementById('q').focus();
+  });
+  var stog = document.getElementById('stog'), sf = document.getElementById('sfilters');
+  stog.addEventListener('click', function(){
+    var h = sf.hasAttribute('hidden');
+    if(h){ sf.removeAttribute('hidden'); stog.textContent = 'згорнути пошук серед актів'; stog.setAttribute('aria-expanded','true'); }
+    else { sf.setAttribute('hidden',''); stog.textContent = 'або шукати серед актів'; stog.setAttribute('aria-expanded','false'); }
+  });
+
+  var size = 16;
+  document.getElementById('fup').addEventListener('click', function(){ size = Math.min(size+1,21); document.documentElement.style.fontSize = size+'px'; });
+  document.getElementById('fdown').addEventListener('click', function(){ size = Math.max(size-1,14); document.documentElement.style.fontSize = size+'px'; });
+  document.getElementById('oldver').addEventListener('click', function(){
+    alert('У макеті стара версія порталу не реалізована.');
+  });
+
+  var chips = document.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('#ngrid .nitem');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      chips.forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+      var f = c.dataset.f;
+      cards.forEach(function(n){ n.style.display = (f==='all' || n.dataset.f===f) ? '' : 'none'; });
+    });
+  });
+
+  var tabs = document.querySelectorAll('.tabline button');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.setAttribute('aria-selected','false'); });
+      t.setAttribute('aria-selected','true');
+    });
+  });
+
+  // Фото: якщо посилання порожнє або не завантажилось — ховаємо img, лишається векторна заглушка
+  document.querySelectorAll('.ph img').forEach(function(img){
+    if(!img.getAttribute('src')){ img.style.display = 'none'; return; }
+    img.addEventListener('error', function(){ img.style.display = 'none'; });
+  });
+
+  document.getElementById('loadmore').addEventListener('click', function(){
+    var grid = document.getElementById('ngrid');
+    var copies = Array.prototype.slice.call(grid.children, 0, 3);
+    copies.forEach(function(c){ grid.appendChild(c.cloneNode(true)); });
+    document.getElementById('loadhint').textContent = 'Показано ' + grid.children.length + ' матеріалів';
+  });
+})();
+</script>
+</body>
+</html>
